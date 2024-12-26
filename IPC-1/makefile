@@ -1,0 +1,20 @@
+EXE_NAME = signal-echo
+COMPILE_FLAGS = -O3 -Wall
+SOURCE_FILE = main.cpp
+OBJECT_FILE = main.o
+COMPILER = g++
+
+all: $(EXE_NAME)
+
+$(EXE_NAME): $(OBJECT_FILE)
+	@$(COMPILER) $(COMPILE_FLAGS) $(OBJECT_FILE) -o $(EXE_NAME)
+
+$(OBJECT_FILE): $(SOURCE_FILE)
+	@$(COMPILER) $(COMPILE_FLAGS) -c $(SOURCE_FILE) -o $(OBJECT_FILE)
+
+clean:
+	@rm -rf $(OBJECT_FILE) $(EXE_NAME)
+
+fclean:
+	@rm -f $(OBJECT_FILE)
+
